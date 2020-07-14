@@ -14,18 +14,14 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="white" expand="lg">
+    <Navbar bg="white" expand="sm">
       <Navbar.Brand as={NavLink} to="/">
         YOUR PROJECT NAME
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path="/" linkText="Home" />
-
-          {loginLogoutControls}
-        </Nav>
-      </Navbar.Collapse>
+      <Nav style={{ width: "70%" }} fill>
+        <NavbarItem path="/" linkText="Wander" />
+        {loginLogoutControls}
+      </Nav>
     </Navbar>
   );
 }
