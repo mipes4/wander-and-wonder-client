@@ -13,6 +13,7 @@ export default function Country(props) {
   console.log("clickedCountry in Game?", props.clickedCountry);
 
   useEffect(() => {
+    console.log("props changes:", props.clickedCountry);
     if (props.clickedCountry === country.name) {
       setScore(score + 1);
       const randomNumber = Math.floor(Math.random() * countries.length);
@@ -22,7 +23,7 @@ export default function Country(props) {
       setScore(score);
       setGameOver(true);
     }
-  }, [props.countryClicked]);
+  }, [props]);
 
   useEffect(() => {
     dispatch(fetchAllCountries());
