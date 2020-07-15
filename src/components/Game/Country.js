@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCountries } from "../../store/countries/actions";
 import { selectCountries } from "../../store/countries/selectors";
 
-export default function Game() {
+export default function Country() {
   const dispatch = useDispatch();
   const { countries } = useSelector(selectCountries);
   console.log(countries);
