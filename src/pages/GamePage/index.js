@@ -5,7 +5,7 @@ import WorldMap from "../../components/WorldMap";
 export default function Game() {
   return (
     <div>
-      <Country />
+      {/* <Country /> */}
       <WorldMap />
     </div>
   );
