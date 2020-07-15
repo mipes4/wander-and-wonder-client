@@ -1,23 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import "./index.css";
-import { fetchAllCountries } from "../../store/countries";
+import { fetchAllCountries } from "../../store/countries/actions";
+import { selectCountries } from "../../store/countries/selectors";
 
-export default function index() {
+export default function Game() {
   const dispatch = useDispatch();
-  const countries = useSelector();
+  const { countries } = useSelector(selectCountries);
+  console.log(countries);
+  const [country, setCountry] = useState({});
+
+  useEffect(() => {
+    dispatch(fetchAllCountries());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (countries) {
+      const randomNumber = Math.floor(Math.random() * countries.length);
+      setCountry(countries[randomNumber]);
+      console.log(randomNumber, countries[randomNumber]);
+    }
+  }, [countries]);
 
   return (
     <div>
-      <h1>Our awesome game</h1>
-      <div id="mapid"></div>
-      <Map animate="true" center={[45.4, -75.7]} zoom={2.5}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        />
-      </Map>
+      <h1>Game</h1>
+      {countries && country ? country.alpha2Code : null}
     </div>
   );
 }
