@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCountries } from "../../store/countries/actions";
 import { selectCountries } from "../../store/countries/selectors";
 
-export default function Country() {
+export default function Country(props) {
   const dispatch = useDispatch();
   const { countries } = useSelector(selectCountries);
   console.log(countries);
   const [country, setCountry] = useState({});
+
+  console.log("clickedCountry in Game?", props.clickedCountry);
 
   useEffect(() => {
     dispatch(fetchAllCountries());
@@ -24,7 +26,7 @@ export default function Country() {
   return (
     <div>
       <h1>Game</h1>
-      {countries && country ? country.alpha2Code : null}
+      {countries && country ? country.name : null}
     </div>
   );
 }
