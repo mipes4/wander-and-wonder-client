@@ -6,10 +6,23 @@ import { selectCountries } from "../../store/countries/selectors";
 export default function Country(props) {
   const dispatch = useDispatch();
   const { countries } = useSelector(selectCountries);
-  console.log(countries);
+  // console.log(countries);
   const [country, setCountry] = useState({});
-
+  const [score, setScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
   console.log("clickedCountry in Game?", props.clickedCountry);
+
+  useEffect(() => {
+    if (props.clickedCountry === country.name) {
+      setScore(score + 1);
+      const randomNumber = Math.floor(Math.random() * countries.length);
+      setCountry(countries[randomNumber]);
+      console.log("What is randomNumber?", randomNumber);
+    } else {
+      setScore(score);
+      setGameOver(true);
+    }
+  }, [props.countryClicked]);
 
   useEffect(() => {
     dispatch(fetchAllCountries());
@@ -19,9 +32,11 @@ export default function Country(props) {
     if (countries) {
       const randomNumber = Math.floor(Math.random() * countries.length);
       setCountry(countries[randomNumber]);
-      console.log(randomNumber, countries[randomNumber]);
+      // console.log(randomNumber, countries[randomNumber]);
     }
   }, [countries]);
+
+  console.log("Score?", score);
 
   return (
     <div>

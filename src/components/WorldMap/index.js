@@ -282,12 +282,13 @@ export default function WorldMap() {
 
   return (
     <div id="container">
+      <Country clickedCountry={country} />
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
         constructorType={"mapChart"}
       />
-      <Country clickedCountry={country} />
+
       {/* {country} */}
     </div>
   );
