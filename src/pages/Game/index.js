@@ -1,5 +1,10 @@
 import React from "react";
+import WorldMap from "../../components/WorldMap";
 
 export default function index() {
-  return <div></div>;
+  return (
+    <div>
+      <WorldMap />
+    </div>
+  );
 }
