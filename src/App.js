@@ -6,7 +6,7 @@ import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import Game from "./pages/Game";
+import Game from "./pages/GamePage";
 import Welcome from "./pages/Welcome";
 
 import { useDispatch, useSelector } from "react-redux";
