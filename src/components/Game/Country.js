@@ -10,11 +10,13 @@ export default function Country(props) {
   const [country, setCountry] = useState({});
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+
   console.log("clickedCountry in Game?", props.clickedCountry);
 
   useEffect(() => {
     console.log("props changes:", props.clickedCountry);
-    if (props.clickedCountry === country.name) {
+
+    if (country && props.clickedCountry === country.name) {
       setScore(score + 1);
       const randomNumber = Math.floor(Math.random() * countries.length);
       setCountry(countries[randomNumber]);
@@ -38,7 +40,6 @@ export default function Country(props) {
   }, [countries]);
 
   console.log("Score?", score);
-
   return (
     <div>
       <h1>Game</h1>
