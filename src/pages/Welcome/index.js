@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Button, Container, Dropdown } from "react-bootstrap";
+import { Button, Container, Dropdown, Image } from "react-bootstrap";
 import { selectToken } from "../../store/player/selectors";
+import wanderBackground from "../../wanderBackground.png";
 
 export default function Welcome() {
   const token = useSelector(selectToken);
@@ -37,7 +38,7 @@ export default function Welcome() {
           Wander and Wonder is a trivia game to learn more about different
           places in the world without leaving your home.
         </p>
-        <p>Click the play button to start wandering and wondering!</p>
+        <Image width="100%" src={wanderBackground}></Image>
         {goToGameControl}
       </div>
     </Container>

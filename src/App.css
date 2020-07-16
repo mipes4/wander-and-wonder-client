@@ -117,3 +117,7 @@ p {
   font-family: "Roboto";
   color: white;
 }
+
+.footer {
+  height: 50px;
+}

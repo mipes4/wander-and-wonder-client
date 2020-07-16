@@ -32,6 +32,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/game" component={Game} />
       </Switch>
+      <div className="footer"></div>
     </div>
   );
 }
