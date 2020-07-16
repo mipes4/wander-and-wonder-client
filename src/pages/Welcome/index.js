@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Button, Container, Dropdown, Image } from "react-bootstrap";
 import { selectToken } from "../../store/player/selectors";
-import wanderBackground from "../../wanderBackground.png";
+import wanderBackground from "../../images/wanderBackground.png";
 import Anime from "react-anime";
 
 export default function Welcome() {
