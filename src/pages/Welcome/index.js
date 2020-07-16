@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Button, Container, Dropdown, Image } from "react-bootstrap";
 import { selectToken } from "../../store/player/selectors";
-import wanderBackground from "../../wanderBackground.png";
+import wanderBackground from "../../images/wanderBackground.png";
+import questionMark from "../../images/questionMark.png";
+import "./index.css";
+import Anime from "react-anime";
 
 export default function Welcome() {
   const token = useSelector(selectToken);
@@ -19,13 +22,27 @@ export default function Welcome() {
         </Dropdown.Menu>
       </Dropdown>
       <Link to="/game">
-        <Button>Play!</Button>
+        <Anime
+          translateY="-50"
+          direction="alternate"
+          easing="easeInBounce"
+          autoplay="false"
+        >
+          <Button>Play!</Button>
+        </Anime>
       </Link>
     </>
   ) : (
     <>
       <Link to="/login">
-        <Button>Play!</Button>
+        <Anime
+          translateY="-50"
+          direction="alternate"
+          easing="easeInBounce"
+          autoplay="false"
+        >
+          <Button>Play!</Button>
+        </Anime>
       </Link>
     </>
   );
@@ -35,10 +52,21 @@ export default function Welcome() {
       <div>
         <h1 class="display-2">Wander and Wonder</h1>
         <p>
-          Wander and Wonder is a trivia game to learn more about different
-          places in the world without leaving your home.
+          A trivia game to learn more about different places in the world
+          without leaving your home.
         </p>
-        <Image width="100%" src={wanderBackground}></Image>
+        <div class="wanderImage">
+          <Anime
+            loop="true"
+            rotate="720"
+            duration="800"
+            delay="800"
+            easing="easeInOutQuart"
+          >
+            <Image src={questionMark}></Image>
+          </Anime>
+        </div>
+
         {goToGameControl}
       </div>
     </Container>
