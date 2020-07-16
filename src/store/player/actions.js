@@ -1,6 +1,6 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken } from "./selectors";
+import { selectToken, selectPlayer } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -11,11 +11,27 @@ import {
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
 export const LOG_OUT = "LOG_OUT";
+export const SAVE_SCORE = "SAVE_SCORE";
+export const GAME_OVER = "GAME_OVER";
 
 const loginSuccess = (playerWithToken) => {
   return {
     type: LOGIN_SUCCESS,
     payload: playerWithToken,
+  };
+};
+
+const gameOver = () => {
+  return {
+    type: GAME_OVER,
+    payload: true,
+  };
+};
+
+const saveScore = (score) => {
+  return {
+    type: SAVE_SCORE,
+    payload: score,
   };
 };
 
@@ -106,6 +122,33 @@ export const getPlayerWithStoredToken = () => {
       // get rid of the token by logging out
       dispatch(logOut());
       dispatch(appDoneLoading());
+    }
+  };
+};
+
+export const dispatchScore = (id, categoryId, score) => {
+  return async (dispatch, getState) => {
+    try {
+      const categoryId = 2;
+
+      console.log("SCORE", score);
+      console.log("PLAYERID", id);
+
+      const response = await axios.post(
+        `${apiUrl}/scores/player/${id}/${categoryId}`, // NEEDS UPDATE WITH CORRECT ENDPOINT
+        {
+          score,
+        }
+      );
+      dispatch(saveScore(score));
+      dispatch(gameOver());
+      console.log("RESPONSEDATA", response.data);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.message);
+      } else {
+        console.log(error);
+      }
     }
   };
 };
