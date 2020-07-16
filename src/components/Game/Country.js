@@ -2,16 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCountries } from "../../store/countries/actions";
 import { selectCountries } from "../../store/countries/selectors";
+
+import { dispatchScore } from "../../store/player/actions";
+import { selectPlayer, selectPlayerId } from "../../store/player/selectors";
+
 import { selectToken } from "../../store/player/selectors";
 import { useHistory } from "react-router-dom";
 
 export default function Country(props) {
   const dispatch = useDispatch();
   const { countries } = useSelector(selectCountries);
-  // console.log(countries);
   const [country, setCountry] = useState({});
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+
+  const id = useSelector(selectPlayerId);
+  console.log("IDDDDDDD", id);
+
   const token = useSelector(selectToken);
   const history = useHistory();
 
@@ -29,9 +36,16 @@ export default function Country(props) {
       const randomNumber = Math.floor(Math.random() * countries.length);
       setCountry(countries[randomNumber]);
       console.log("What is randomNumber?", randomNumber);
-    } else {
-      setScore(score);
+    }
+    if (
+      !gameOver &&
+      props.clickedCountry !== "" &&
+      props.clickedCountry !== country.name
+    ) {
+      console.log("CLICKED COUNTRY", props.clickedCountry);
+      console.log("COUNTRY.NAME", country.name);
       setGameOver(true);
+      dispatch(dispatchScore(id, 2, score));
     }
   }, [props]);
 
@@ -48,6 +62,8 @@ export default function Country(props) {
   }, [countries]);
 
   console.log("Score?", score);
+  console.log(country, props.clickedCountry);
+
   return (
     <div>
       <h1>Game</h1>
