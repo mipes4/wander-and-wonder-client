@@ -15,9 +15,10 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar className="navbar" expand="sm" f>
+    <Navbar className="navbar" expand="sm">
       <Nav style={{ width: "100%" }} fill>
         <NavbarItem path="/" linkText="Wander" />
+        <NavbarItem path="/scoreboard" linkText="Scoreboard" />
         {loginLogoutControls}
       </Nav>
     </Navbar>

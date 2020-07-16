@@ -12,6 +12,7 @@ import Welcome from "./pages/Welcome";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getPlayerWithStoredToken } from "./store/player/actions";
+import Scoreboard from "./pages/Scoreboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/game" component={Game} />
+        <Route path="/scoreboard" component={Scoreboard} />
       </Switch>
       <div className="footer"></div>
     </div>
