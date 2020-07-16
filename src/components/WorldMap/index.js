@@ -245,6 +245,7 @@ const chart = {
   credits: {
     enabled: false,
   },
+  // tooltip: { enabled: false }, //Pop-up on hover. Disable for the game.
   mapNavigation: {
     enabled: true, //ability to zoom
   },

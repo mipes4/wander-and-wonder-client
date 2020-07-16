@@ -1,12 +1,10 @@
 import React from "react";
-import Country from "../../components/Game/Country";
 import WorldMap from "../../components/WorldMap";
+import { useSelector } from "react-redux";
+import { selectPlayer } from "../../store/player/selectors";
 
 export default function Game() {
-  return (
-    <div>
-      {/* <Country /> */}
-      <WorldMap />
-    </div>
-  );
+  const { gameOver } = useSelector(selectPlayer);
+
+  return <div>{!gameOver ? <WorldMap /> : <p>Damn, you lost.</p>}</div>;
 }
