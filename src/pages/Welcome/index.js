@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Button, Container, Dropdown, Image } from "react-bootstrap";
 import { selectToken } from "../../store/player/selectors";
 import wanderBackground from "../../wanderBackground.png";
+import Anime from "react-anime";
 
 export default function Welcome() {
   const token = useSelector(selectToken);
@@ -19,7 +20,9 @@ export default function Welcome() {
         </Dropdown.Menu>
       </Dropdown>
       <Link to="/game">
-        <Button>Play!</Button>
+        <Anime translateX="250">
+          <Button>Play!</Button>
+        </Anime>
       </Link>
     </>
   ) : (
