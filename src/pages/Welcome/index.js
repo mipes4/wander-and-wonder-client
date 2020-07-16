@@ -52,13 +52,13 @@ export default function Welcome() {
       <div>
         <h1 class="display-2">Wander and Wonder</h1>
         <p>
-          Wander and Wonder is a trivia game to learn more about different
-          places in the world without leaving your home.
+          A trivia game to learn more about different places in the world
+          without leaving your home.
         </p>
         <div class="wanderImage">
           <Anime
             loop="true"
-            rotate="360"
+            rotate="720"
             duration="800"
             delay="800"
             easing="easeInOutQuart"
@@ -66,7 +66,6 @@ export default function Welcome() {
             <Image src={questionMark}></Image>
           </Anime>
         </div>
-        {/* <Image width="100%" src={wanderBackground}></Image> */}
 
         {goToGameControl}
       </div>
