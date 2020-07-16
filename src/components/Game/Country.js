@@ -9,7 +9,6 @@ import { selectPlayer, selectPlayerId } from "../../store/player/selectors";
 import { selectToken } from "../../store/player/selectors";
 import { useHistory } from "react-router-dom";
 
-
 export default function Country(props) {
   const dispatch = useDispatch();
   const { countries } = useSelector(selectCountries);
@@ -19,8 +18,6 @@ export default function Country(props) {
 
   const id = useSelector(selectPlayerId);
   console.log("IDDDDDDD", id);
-
-  useEffect(() => {
 
   const token = useSelector(selectToken);
   const history = useHistory();
