@@ -20,7 +20,12 @@ export default function Welcome() {
         </Dropdown.Menu>
       </Dropdown>
       <Link to="/game">
-        <Anime translateX="250">
+        <Anime
+          translateY="-50"
+          direction="alternate"
+          easing="easeInBounce"
+          autoplay="false"
+        >
           <Button>Play!</Button>
         </Anime>
       </Link>
