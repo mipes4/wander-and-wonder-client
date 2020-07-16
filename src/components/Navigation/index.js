@@ -7,6 +7,7 @@ import { selectToken } from "../../store/player/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import "./index.css";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
@@ -14,11 +15,8 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="white" expand="sm">
-      <Navbar.Brand as={NavLink} to="/">
-        YOUR PROJECT NAME
-      </Navbar.Brand>
-      <Nav style={{ width: "70%" }} fill>
+    <Navbar className="navbar" expand="sm" f>
+      <Nav style={{ width: "100%" }} fill>
         <NavbarItem path="/" linkText="Wander" />
         {loginLogoutControls}
       </Nav>

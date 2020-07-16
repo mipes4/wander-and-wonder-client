@@ -32,7 +32,7 @@ export default function Welcome() {
   return (
     <Container>
       <div>
-        <h1>Wander and Wonder</h1>
+        <h1 class="display-2">Wander and Wonder</h1>
         <p>
           Wander and Wonder is a trivia game to learn more about different
           places in the world without leaving your home.
