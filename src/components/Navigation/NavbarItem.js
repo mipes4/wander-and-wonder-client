@@ -6,7 +6,7 @@ export default function NavbarItem(props) {
   return (
     <Nav.Item>
       <Nav.Link as={NavLink} to={props.path}>
-        {props.linkText}
+        <span className="navbarItemText">{props.linkText}</span>
       </Nav.Link>
     </Nav.Item>
   );
