@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { Button, Container, Dropdown, Image } from "react-bootstrap";
 import { selectToken } from "../../store/player/selectors";
 import wanderBackground from "../../images/wanderBackground.png";
+import questionMark from "../../images/questionMark.png";
+import "./index.css";
 import Anime from "react-anime";
 
 export default function Welcome() {
@@ -33,7 +35,14 @@ export default function Welcome() {
   ) : (
     <>
       <Link to="/login">
-        <Button>Play!</Button>
+        <Anime
+          translateY="-50"
+          direction="alternate"
+          easing="easeInBounce"
+          autoplay="false"
+        >
+          <Button>Play!</Button>
+        </Anime>
       </Link>
     </>
   );
@@ -46,7 +55,19 @@ export default function Welcome() {
           Wander and Wonder is a trivia game to learn more about different
           places in the world without leaving your home.
         </p>
-        <Image width="100%" src={wanderBackground}></Image>
+        <div class="wanderImage">
+          <Anime
+            loop="true"
+            rotate="360"
+            duration="800"
+            delay="800"
+            easing="easeInOutQuart"
+          >
+            <Image src={questionMark}></Image>
+          </Anime>
+        </div>
+        {/* <Image width="100%" src={wanderBackground}></Image> */}
+
         {goToGameControl}
       </div>
     </Container>

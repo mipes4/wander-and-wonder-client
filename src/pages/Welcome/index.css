@@ -1,0 +1,10 @@
+.wanderImage {
+  background-image: url("../../images/wanderBackground.png");
+  height: 450px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 150px 0;
+}
