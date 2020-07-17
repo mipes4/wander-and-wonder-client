@@ -1,7 +1,8 @@
 th {
-  color: red;
+  /* color: red; */
   font-size: 1.2em;
   letter-spacing: 0.2em;
+  background-color: red;
 }
 
 Col {
