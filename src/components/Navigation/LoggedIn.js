@@ -10,10 +10,9 @@ export default function LoggedIn() {
   const player = useSelector(selectPlayer);
   return (
     <>
-      <Nav.Item style={{ padding: ".5rem 1rem" }}>
-        {player.name}'s scores
+      <Nav.Item style={{ padding: ".5rem 18rem" }}>
+        <Button onClick={() => dispatch(logOut())}>Logout</Button>
       </Nav.Item>
-      <Button onClick={() => dispatch(logOut())}>Logout</Button>
     </>
   );
 }
