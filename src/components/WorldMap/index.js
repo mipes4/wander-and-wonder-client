@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectPlayer } from "../../store/player/selectors";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
 import highchartsMap from "highcharts/modules/map";
@@ -33,7 +35,7 @@ const chart = {
   credits: {
     enabled: false,
   },
-  tooltip: { enabled: false }, //Pop-up on hover. Disable for the game.
+  tooltip: { enabled: true }, //Pop-up on hover. Disable for the game.
   mapNavigation: {
     enabled: true, //ability to zoom
   },
@@ -67,6 +69,7 @@ const chart = {
 
 export default function WorldMap() {
   const [country, setCountry] = useState("");
+  const { category } = useSelector(selectPlayer);
 
   chart.plotOptions["series"]["point"]["events"]["click"] = (event) => {
     console.log("event", event.point["hc-key"].toUpperCase());
@@ -78,7 +81,7 @@ export default function WorldMap() {
 
   return (
     <div id="container">
-      <Country clickedCountry={country} />
+      <Country clickedCountry={country} category={category} />
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
