@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { login } from "../../store/player/actions";
 import { selectToken } from "../../store/player/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link, withRouter } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
 export default function SignUp() {
@@ -22,7 +22,6 @@ export default function SignUp() {
   }, [token, history]);
 
   function submitForm(event) {
-    console.log("hi");
     event.preventDefault();
 
     dispatch(login(email, password));

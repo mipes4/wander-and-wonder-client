@@ -22,6 +22,5 @@ export function fetchCountriesEurope() {
       `${COUNTRIES_API_URL}/rest/v2/region/europe`
     );
     dispatch(storeEuropeData(response.data));
-    console.log("EUROPE", response.data);
   };
 }

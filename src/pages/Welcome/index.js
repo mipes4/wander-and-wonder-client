@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Button, Container, Dropdown, Image, Row } from "react-bootstrap";
+import { Button, Container, Dropdown, Image } from "react-bootstrap";
 import { selectToken } from "../../store/player/selectors";
-import wanderBackground from "../../images/wanderBackground.png";
 import questionMark from "../../images/questionMark.png";
 import "./index.css";
-import Anime, { anime } from "react-anime";
+import Anime from "react-anime";
 import { gameCateory } from "../../store/player/actions";
 
 export default function Welcome() {
