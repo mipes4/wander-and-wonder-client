@@ -4,8 +4,10 @@ import { apiUrl } from "../../config/constants";
 export function storeScoresData(id, data) {
   if (id === 1) {
     return { type: "ADD_FLAG_SCORES", payload: data };
-  } else {
+  } else if (id === 2) {
     return { type: "ADD_COUNTRY_SCORES", payload: data };
+  } else {
+    return { type: "ADD_EUROPE_SCORES", payload: data };
   }
 }
 

@@ -10,9 +10,12 @@ import "./index.css";
 
 export default function Scoreboard() {
   const dispatch = useDispatch();
-  const { flagCatScores, countryCatScores, categories } = useSelector(
-    selectScores
-  );
+  const {
+    flagCatScores,
+    countryCatScores,
+    europeCatScores,
+    categories,
+  } = useSelector(selectScores);
 
   useEffect(() => {
     dispatch(fetchAllCategories);
@@ -62,6 +65,30 @@ export default function Scoreboard() {
             </thead>
             <tbody>
               {countryCatScores.map((score, i) => {
+                return (
+                  <tr key={i}>
+                    <td>{score.player.name}</td>
+                    <td>{score.score}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h2 style={{ fontSize: 22 }}>Find the countries of Europe</h2>
+          <Table variant="dark" striped bordered hover size="xsm">
+            <thead>
+              <tr>
+                {" "}
+                <th>Player</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {europeCatScores.map((score, i) => {
                 return (
                   <tr key={i}>
                     <td>{score.player.name}</td>

@@ -37,12 +37,25 @@ export default function Europe(props) {
       props.clickedCountry !== country.alpha2Code
     ) {
       setGameOver(true);
-
-      if (props.category === "flag") {
-        dispatch(dispatchScore(id, 1, score));
-      } else {
-        dispatch(dispatchScore(id, 2, score));
+      switch (id) {
+        case props.category === "flag":
+          dispatch(dispatchScore(id, 1, score));
+          break;
+        case props.category === "country":
+          dispatch(dispatchScore(id, 2, score));
+          break;
+        default:
+          dispatch(dispatchScore(id, 3, score));
+          break;
       }
+
+      // if (props.category === "flag") {
+      //   dispatch(dispatchScore(id, 1, score));
+      // } else if (props.category === "country") {
+      //   dispatch(dispatchScore(id, 1, score));
+      // } else {
+      //   dispatch(dispatchScore(id, 1, score));
+      // }
 
       dispatch(showMessageWithTimeout("danger", true, "Too bad, wrong guess."));
     }
@@ -90,7 +103,7 @@ export default function Europe(props) {
         >
           <div style={{ width: 300 }}>
             {" "}
-            {europe && country ? <h2>{country.name}</h2> : null}
+            {!gameOver && europe && country ? <h2>{country.name}</h2> : null}
           </div>
           <div
             style={{

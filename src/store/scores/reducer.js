@@ -3,6 +3,7 @@ import { act } from "react-dom/test-utils";
 const initialState = {
   flagCatScores: [],
   countryCatScores: [],
+  europeCatScores: [],
   categories: [],
 };
 export default function scoresSliceReducer(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function scoresSliceReducer(state = initialState, action) {
       return {
         ...state,
         flagCatScores: action.payload,
+      };
+    case "ADD_EUROPE_SCORES":
+      return {
+        ...state,
+        europeCatScores: action.payload,
       };
     case "FETCH_CATEGORY":
       return {
