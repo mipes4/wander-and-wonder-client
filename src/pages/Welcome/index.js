@@ -24,10 +24,12 @@ export default function Welcome() {
               Choose category
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item eventKey="country">Find the country</Dropdown.Item>
+              <Dropdown.Item eventKey="country">
+                Find the countries of the world
+              </Dropdown.Item>
               <Dropdown.Item eventKey="flag">Flags of the world</Dropdown.Item>
               <Dropdown.Item eventKey="europe">
-                Countries in Europe
+                Countries of Europe
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
