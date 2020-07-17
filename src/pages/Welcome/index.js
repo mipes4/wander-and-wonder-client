@@ -73,7 +73,7 @@ export default function Welcome() {
           <Anime
             loop="500"
             rotate="720"
-            duration="800"
+            duration="1600"
             delay="666"
             easing="easeInOutQuart"
           >

@@ -4,7 +4,11 @@ import { NavLink } from "react-router-dom";
 
 export default function NavbarItem(props) {
   return (
-    <Nav.Item>
+    <Nav.Item
+      style={{
+        display: "flex",
+      }}
+    >
       <Nav.Link as={NavLink} to={props.path}>
         <span className="navbarItemText">{props.linkText}</span>
       </Nav.Link>
