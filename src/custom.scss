@@ -7,13 +7,30 @@ html {
 }
 
 button.btn.btn-primary {
-  background-color: #ee1616;
-  border: #ee1616;
+  background-color: #ee1616 !important;
+  border: #ee1616 !important;
+  box-shadow: none !important;
 }
 
 button.btn.btn-primary:hover {
-  background-color: white;
-  color: black;
+  background-color: white !important;
+  color: black !important;
+  border: white !important;
+  box-shadow: none !important;
+}
+
+button.btn.btn-primary:active {
+  background-color: white !important;
+  color: black !important;
+  border: white !important;
+  box-shadow: none !important;
+}
+
+button.btn.btn-primary:focus {
+  background-color: white !important;
+  color: black !important;
+  border: white !important;
+  box-shadow: none !important;
 }
 
 nav.navbar.navbar.navbar-expand-sm.navbar-light {

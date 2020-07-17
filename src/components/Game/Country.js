@@ -7,7 +7,11 @@ import { selectPlayer, selectPlayerId } from "../../store/player/selectors";
 import { showMessageWithTimeout } from "../../store/appState/actions";
 import { selectToken } from "../../store/player/selectors";
 import { useHistory } from "react-router-dom";
+
 import { Image } from "react-bootstrap";
+
+import { findByLabelText } from "@testing-library/react";
+
 
 export default function Country(props) {
   const dispatch = useDispatch();
@@ -76,6 +80,7 @@ export default function Country(props) {
   console.log(country, props.clickedCountry);
 
   return (
+
     <div>
       <h1 class="display-2">Click on the correct country</h1>
       {countries && country ? (
@@ -86,8 +91,69 @@ export default function Country(props) {
         )
       ) : null}
       {/* {alphaCodes.map((code, i) => {
+
+
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <h1
+        style={{
+          marginBottom: 30,
+        }}
+        className="display-2"
+      >
+        Click on the correct country
+      </h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: 500,
+          }}
+        >
+          <div style={{ width: 300 }}>
+            {" "}
+            {countries && country ? <h2>{country.name}</h2> : null}
+          {/* {alphaCodes.map((code, i) => {
+
         return <p>{`["${code}", ${i}],`}</p>;
       })} */}
+          </div>
+          <div
+            style={{
+              backgroundColor: "red",
+              height: 90,
+              width: 90,
+              borderRadius: 75,
+              textAlign: "center",
+              // alignSelf: "flex-end",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: 24,
+                textAlign: "center",
+                alignSelf: "center",
+              }}
+            >
+              Score: {score}
+            </h2>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
