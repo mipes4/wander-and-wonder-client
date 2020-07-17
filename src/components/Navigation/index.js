@@ -16,10 +16,10 @@ export default function Navigation() {
 
   return (
     <Navbar collapseOnSelect expand="lg">
-      <Nav style={{ width: "100%", paddingLeft: "50px" }}>
-        <Navbar.Brand as={NavLink} to="/">
+      <Nav style={{ width: "80%", paddingLeft: "50px" }}>
+        <NavbarItem path="/" linkText="Wander">
           Wander
-        </Navbar.Brand>
+        </NavbarItem>
 
         <NavbarItem path="/scoreboard" linkText="Scoreboard" />
       </Nav>

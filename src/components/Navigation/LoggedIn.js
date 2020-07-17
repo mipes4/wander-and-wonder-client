@@ -12,6 +12,7 @@ export default function LoggedIn() {
     <>
       <Nav style={{ paddingRight: "50px" }}>
         <Nav.Item>
+          <h3 style={{ paddingRight: 20 }}>Welcome {player.name}</h3>
           <Button onClick={() => dispatch(logOut())}>Logout</Button>
         </Nav.Item>
       </Nav>

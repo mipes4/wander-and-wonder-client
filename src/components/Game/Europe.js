@@ -101,7 +101,7 @@ export default function Europe(props) {
         >
           <div style={{ width: 300 }}>
             {" "}
-            {europe && country ? country.name : null}
+            {europe && country ? <h2>{country.name}</h2> : null}
           </div>
           <div
             style={{
