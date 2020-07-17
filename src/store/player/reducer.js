@@ -28,7 +28,11 @@ export default (state = initialState, action) => {
       return { ...state, ...action.payload };
 
     case GAME_OVER:
-      return { ...state, gameOver: action.payload };
+      if (action.payload === true) {
+        return { ...state, gameOver: action.payload };
+      } else {
+        return { ...state, gameOver: action.payload, score: 0 };
+      }
 
     case SAVE_SCORE:
       return { ...state, score: action.payload };

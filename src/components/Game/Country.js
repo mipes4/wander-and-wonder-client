@@ -15,13 +15,15 @@ export default function Country(props) {
   const [country, setCountry] = useState({});
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-
+  console.log("countries:", countries);
   const id = useSelector(selectPlayerId);
   console.log("IDDDDDDD", id);
 
   const token = useSelector(selectToken);
   const history = useHistory();
 
+  const alphaCodes = countries.map((c) => c.alpha2Code);
+  console.log("alphacodes:", alphaCodes);
   console.log("clickedCountry in Game?", props.clickedCountry);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function Country(props) {
   useEffect(() => {
     console.log("props changes:", props.clickedCountry);
 
-    if (country && props.clickedCountry === country.name) {
+    if (country && props.clickedCountry === country.alpha2Code) {
       setScore(score + 1);
       const randomNumber = Math.floor(Math.random() * countries.length);
       setCountry(countries[randomNumber]);
@@ -43,10 +45,10 @@ export default function Country(props) {
     if (
       !gameOver &&
       props.clickedCountry !== "" &&
-      props.clickedCountry !== country.name
+      props.clickedCountry !== country.alpha2Code
     ) {
       console.log("CLICKED COUNTRY", props.clickedCountry);
-      console.log("COUNTRY.NAME", country.name);
+      console.log("COUNTRY.alpha2Code", country.alpha2Code);
       setGameOver(true);
       dispatch(dispatchScore(id, 2, score));
       dispatch(showMessageWithTimeout("danger", true, "Too bad, wrong guess."));

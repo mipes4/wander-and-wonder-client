@@ -21,10 +21,10 @@ const loginSuccess = (playerWithToken) => {
   };
 };
 
-const gameOver = () => {
+export const handleGameOver = (data) => {
   return {
     type: GAME_OVER,
-    payload: true,
+    payload: data,
   };
 };
 
@@ -141,7 +141,7 @@ export const dispatchScore = (id, categoryId, score) => {
         }
       );
       dispatch(saveScore(score));
-      dispatch(gameOver());
+      dispatch(handleGameOver(true));
       console.log("RESPONSEDATA", response.data);
     } catch (error) {
       if (error.response) {
