@@ -53,9 +53,13 @@ export default function Country(props) {
       console.log("CLICKED COUNTRY", props.clickedCountry);
       console.log("COUNTRY.alpha2Code", country.alpha2Code);
       setGameOver(true);
+      console.log("props.category:", props.category);
       if (props.category === "flag") {
+        console.log("Inside flag category");
         dispatch(dispatchScore(id, 1, score));
       } else {
+        console.log("Inside country category");
+
         dispatch(dispatchScore(id, 2, score));
       }
 

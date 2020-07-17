@@ -21,6 +21,8 @@ const plotOptions = {
   },
 };
 
+let tooltip = { enabled: true };
+
 const chart = {
   chart: {
     map: "world",
@@ -35,7 +37,8 @@ const chart = {
   credits: {
     enabled: false,
   },
-  tooltip: { enabled: true }, //Pop-up on hover. Disable for the game.
+  tooltip,
+  //Pop-up on hover. Disable for the game.
   mapNavigation: {
     enabled: true, //ability to zoom
   },
@@ -51,7 +54,7 @@ const chart = {
     {
       // Use the gb-all map with no data as a basemap
       data: data,
-      name: "Basemap",
+      name: "Where Am I??",
       mapData: mapData,
 
       borderColor: "grey",
@@ -76,6 +79,11 @@ export default function WorldMap() {
     // console.log("this", this);
     setCountry(event.point["hc-key"].toUpperCase());
   };
+
+  // console.log( "tooltip:", chart.tooltip["enabled"]);
+  if (category === "country") {
+    chart.tooltip["enabled"] = false;
+  }
 
   const [options, setOptions] = useState(chart);
 

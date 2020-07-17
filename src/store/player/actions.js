@@ -136,6 +136,7 @@ export const dispatchScore = (id, categoryId, score) => {
     try {
       console.log("SCORE", score);
       console.log("PLAYERID", id);
+      console.log("categoryId", categoryId);
 
       const response = await axios.post(
         `${apiUrl}/scores/player/${id}/${categoryId}`, // NEEDS UPDATE WITH CORRECT ENDPOINT
