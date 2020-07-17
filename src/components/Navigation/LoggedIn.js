@@ -10,7 +10,7 @@ export default function LoggedIn() {
   const player = useSelector(selectPlayer);
   return (
     <>
-      <Nav.Item style={{ padding: ".5rem 18rem" }}>
+      <Nav.Item style={{ padding: ".5rem 18rem", justifyContent: "flex-end," }}>
         <Button onClick={() => dispatch(logOut())}>Logout</Button>
       </Nav.Item>
     </>

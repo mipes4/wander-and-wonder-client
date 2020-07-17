@@ -37,10 +37,18 @@ nav.navbar.navbar.navbar-expand-sm.navbar-light {
   background-color: #2d2d2d;
   font-family: "Amatic SC";
   font-size: 30px;
+  // display: "flex" !important;
+  // justify-content: "center" !important;
 }
 
 .navbar {
   color: white !important;
+}
+
+.nav-item {
+  display: flex !important;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .nav {
