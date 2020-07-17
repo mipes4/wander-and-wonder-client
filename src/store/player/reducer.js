@@ -4,6 +4,7 @@ import {
   TOKEN_STILL_VALID,
   SAVE_SCORE,
   GAME_OVER,
+  SELECT_CATEGORY,
 } from "./actions";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   email: null,
   gameOver: false,
   score: 0,
+  category: null,
 };
 
 export default (state = initialState, action) => {
@@ -36,6 +38,9 @@ export default (state = initialState, action) => {
 
     case SAVE_SCORE:
       return { ...state, score: action.payload };
+
+    case SELECT_CATEGORY:
+      return { ...state, category: action.payload };
 
     default:
       return state;

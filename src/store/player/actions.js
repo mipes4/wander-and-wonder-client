@@ -13,6 +13,11 @@ export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
 export const LOG_OUT = "LOG_OUT";
 export const SAVE_SCORE = "SAVE_SCORE";
 export const GAME_OVER = "GAME_OVER";
+export const SELECT_CATEGORY = "SELECT_CATEGORY";
+
+export const gameCateory = (categoryName) => {
+  return { type: SELECT_CATEGORY, payload: categoryName };
+};
 
 const loginSuccess = (playerWithToken) => {
   return {
@@ -129,8 +134,6 @@ export const getPlayerWithStoredToken = () => {
 export const dispatchScore = (id, categoryId, score) => {
   return async (dispatch, getState) => {
     try {
-      const categoryId = 2;
-
       console.log("SCORE", score);
       console.log("PLAYERID", id);
 

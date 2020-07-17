@@ -7,9 +7,8 @@ import { selectPlayer, selectPlayerId } from "../../store/player/selectors";
 import { showMessageWithTimeout } from "../../store/appState/actions";
 import { selectToken } from "../../store/player/selectors";
 import { useHistory } from "react-router-dom";
-import { Image } from "react-bootstrap";
 
-export default function Country(props) {
+export default function Flag(props) {
   const dispatch = useDispatch();
   const { countries } = useSelector(selectCountries);
   const [country, setCountry] = useState({});
@@ -50,12 +49,7 @@ export default function Country(props) {
       console.log("CLICKED COUNTRY", props.clickedCountry);
       console.log("COUNTRY.alpha2Code", country.alpha2Code);
       setGameOver(true);
-      if (props.category === "flag") {
-        dispatch(dispatchScore(id, 1, score));
-      } else {
-        dispatch(dispatchScore(id, 2, score));
-      }
-
+      dispatch(dispatchScore(id, 2, score));
       dispatch(showMessageWithTimeout("danger", true, "Too bad, wrong guess."));
     }
   }, [props]);
@@ -78,13 +72,7 @@ export default function Country(props) {
   return (
     <div>
       <h1 class="display-2">Click on the correct country</h1>
-      {countries && country ? (
-        props.category === "country" ? (
-          country.name
-        ) : (
-          <Image height="150px" width="250px" src={country.flag} />
-        )
-      ) : null}
+      {countries && country ? country.flag : null}
       {/* {alphaCodes.map((code, i) => {
         return <p>{`["${code}", ${i}],`}</p>;
       })} */}

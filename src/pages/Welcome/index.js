@@ -1,28 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Button, Container, Dropdown, Image, Row } from "react-bootstrap";
 import { selectToken } from "../../store/player/selectors";
 import wanderBackground from "../../images/wanderBackground.png";
 import questionMark from "../../images/questionMark.png";
 import "./index.css";
 import Anime, { anime } from "react-anime";
+import { gameCateory } from "../../store/player/actions";
 
 export default function Welcome() {
   const token = useSelector(selectToken);
+  const dispatch = useDispatch();
   const goToGameControl = token ? (
     <>
       <div class="menuWhenLoggedIn">
         <div id="dropdown">
-          <Dropdown className="btn-lg">
+          <Dropdown
+            onSelect={(e) => dispatch(gameCateory(e))}
+            className="btn-lg"
+          >
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Choose category
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Find the country</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">
-                Flags of the world
-              </Dropdown.Item>
+              <Dropdown.Item eventKey="country">Find the country</Dropdown.Item>
+              <Dropdown.Item eventKey="flag">Flags of the world</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>
