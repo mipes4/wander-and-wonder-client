@@ -12,7 +12,6 @@ import { Image } from "react-bootstrap";
 
 import { findByLabelText } from "@testing-library/react";
 
-
 export default function Country(props) {
   const dispatch = useDispatch();
   const { countries } = useSelector(selectCountries);
@@ -80,19 +79,6 @@ export default function Country(props) {
   console.log(country, props.clickedCountry);
 
   return (
-
-    <div>
-      <h1 class="display-2">Click on the correct country</h1>
-      {countries && country ? (
-        props.category === "country" ? (
-          country.name
-        ) : (
-          <Image height="150px" width="250px" src={country.flag} />
-        )
-      ) : null}
-      {/* {alphaCodes.map((code, i) => {
-
-
     <div
       style={{
         display: "flex",
@@ -123,11 +109,13 @@ export default function Country(props) {
         >
           <div style={{ width: 300 }}>
             {" "}
-            {countries && country ? <h2>{country.name}</h2> : null}
-          {/* {alphaCodes.map((code, i) => {
-
-        return <p>{`["${code}", ${i}],`}</p>;
-      })} */}
+            {countries && country ? (
+              props.category === "country" ? (
+                country.name
+              ) : (
+                <Image height="150px" width="250px" src={country.flag} />
+              )
+            ) : null}
           </div>
           <div
             style={{
