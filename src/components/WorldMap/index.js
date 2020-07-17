@@ -54,7 +54,7 @@ const chart = {
     {
       // Use the gb-all map with no data as a basemap
       data: data,
-      name: "Where Am I??",
+      name: "Country",
       mapData: mapData,
 
       borderColor: "grey",

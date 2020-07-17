@@ -115,7 +115,7 @@ export default function Country(props) {
             {" "}
             {countries && country ? (
               props.category === "country" ? (
-                country.name
+                <h2>{country.name}</h2>
               ) : (
                 <Image height="150px" width="250px" src={country.flag} />
               )
