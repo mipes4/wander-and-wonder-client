@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
 import highchartsMap from "highcharts/modules/map";
-import mapDataIE from "@highcharts/map-collection/custom/world.geo.json";
+import mapData from "@highcharts/map-collection/custom/world.geo.json";
 // import * as Exporting from "highcharts/modules/exporting";
 
 import "./index.css";
@@ -257,7 +257,7 @@ const chart = {
       // Use the gb-all map with no data as a basemap
       data: data,
       name: "Basemap",
-      mapData: mapDataIE,
+      mapData: mapData,
       borderColor: "#A0A0A0",
       nullColor: "white",
       showInLegend: false,
@@ -274,9 +274,9 @@ export default function WorldMap() {
   const [country, setCountry] = useState("");
 
   chart.plotOptions["series"]["point"]["events"]["click"] = (event) => {
-    console.log("event", event.point.name);
+    console.log("event", event.point["hc-key"].toUpperCase());
     // console.log("this", this);
-    setCountry(event.point.name);
+    setCountry(event.point["hc-key"].toUpperCase());
   };
 
   const [options, setOptions] = useState(chart);
