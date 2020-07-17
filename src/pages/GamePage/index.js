@@ -1,5 +1,6 @@
 import React from "react";
 import WorldMap from "../../components/WorldMap";
+import EuropeMap from "../../components/EuropeMap";
 import { useSelector, useDispatch } from "react-redux";
 import { selectPlayer } from "../../store/player/selectors";
 import { handleGameOver } from "../../store/player/actions";
@@ -10,16 +11,24 @@ import { Button, Image } from "react-bootstrap";
 import "./index.css";
 
 export default function Game() {
-  const { gameOver } = useSelector(selectPlayer);
+  const { gameOver, category } = useSelector(selectPlayer);
   const dispatch = useDispatch();
   const handle = () => {
     dispatch(handleGameOver(false));
   };
+  console.log("category?", category);
 
   return (
     <div>
       {!gameOver ? (
-        <WorldMap />
+        category === "europe" ? (
+          <div>
+            {console.log("inside EuropeMap", category)}
+            <EuropeMap />
+          </div>
+        ) : (
+          <WorldMap />
+        )
       ) : (
         <div
           id="button"

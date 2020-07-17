@@ -28,6 +28,9 @@ export default function Welcome() {
                 Find the countries over the world
               </Dropdown.Item>
               <Dropdown.Item eventKey="flag">Flags of the world</Dropdown.Item>
+              <Dropdown.Item eventKey="europe">
+                Countries in Europe
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>
