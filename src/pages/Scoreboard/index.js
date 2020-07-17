@@ -34,7 +34,7 @@ export default function Scoreboard() {
       <Row>
         <Col>
           {" "}
-          <h3>Guess the flag!!</h3>
+          <h2 style={{ fontSize: 22 }}>Flags of the world</h2>
           <Table variant="dark" striped bordered hover size="xsm">
             <thead>
               <tr>
@@ -55,7 +55,7 @@ export default function Scoreboard() {
           </Table>
         </Col>
         <Col>
-          <h3>Guess the Country!!</h3>
+          <h2 style={{ fontSize: 22 }}>Find the countries over the world</h2>
           <Table variant="dark" striped bordered hover size="xsm">
             <thead>
               <tr>
