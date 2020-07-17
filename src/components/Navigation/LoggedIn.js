@@ -1,11 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../store/player/actions";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
+import { selectPlayer } from "../../store/player/selectors";
 
 export default function LoggedIn() {
   const dispatch = useDispatch();
+  const player = useSelector(selectPlayer);
 
   return (
     <>
