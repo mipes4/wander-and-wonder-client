@@ -1,6 +1,6 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken, selectPlayer } from "./selectors";
+import { selectToken } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -62,10 +62,8 @@ export const signUp = (name, email, password) => {
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
-        console.log(error.response.data.message);
         dispatch(setMessage("danger", true, error.response.data.message));
       } else {
-        console.log(error.message);
         dispatch(setMessage("danger", true, error.message));
       }
       dispatch(appDoneLoading());
@@ -87,10 +85,8 @@ export const login = (email, password) => {
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
-        console.log(error.response.data.message);
         dispatch(setMessage("danger", true, error.response.data.message));
       } else {
-        console.log(error.message);
         dispatch(setMessage("danger", true, error.message));
       }
       dispatch(appDoneLoading());
@@ -119,9 +115,7 @@ export const getPlayerWithStoredToken = () => {
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
-        console.log(error.response.message);
       } else {
-        console.log(error);
       }
       // if we get a 4xx or 5xx response,
       // get rid of the token by logging out
@@ -134,10 +128,6 @@ export const getPlayerWithStoredToken = () => {
 export const dispatchScore = (id, categoryId, score) => {
   return async (dispatch, getState) => {
     try {
-      console.log("SCORE", score);
-      console.log("PLAYERID", id);
-      console.log("categoryId", categoryId);
-
       const response = await axios.post(
         `${apiUrl}/scores/player/${id}/${categoryId}`, // NEEDS UPDATE WITH CORRECT ENDPOINT
         {
@@ -146,12 +136,9 @@ export const dispatchScore = (id, categoryId, score) => {
       );
       dispatch(saveScore(score));
       dispatch(handleGameOver(true));
-      console.log("RESPONSEDATA", response.data);
     } catch (error) {
       if (error.response) {
-        console.log(error.response.message);
       } else {
-        console.log(error);
       }
     }
   };

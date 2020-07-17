@@ -75,12 +75,9 @@ export default function WorldMap() {
   const { category } = useSelector(selectPlayer);
 
   chart.plotOptions["series"]["point"]["events"]["click"] = (event) => {
-    console.log("event", event.point["hc-key"].toUpperCase());
-    // console.log("this", this);
     setCountry(event.point["hc-key"].toUpperCase());
   };
 
-  // console.log( "tooltip:", chart.tooltip["enabled"]);
   if (category === "country") {
     chart.tooltip["enabled"] = false;
   }
@@ -95,8 +92,6 @@ export default function WorldMap() {
         options={options}
         constructorType={"mapChart"}
       />
-
-      {/* {country} */}
     </div>
   );
 }

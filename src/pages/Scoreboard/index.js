@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Table, Row, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -20,13 +20,9 @@ export default function Scoreboard() {
 
   useEffect(() => {
     categories.forEach((category) => {
-      console.log("fetching data for category:", category.id);
       dispatch(fetchAllScoresbyCategory(category.id));
     });
   }, [categories]);
-
-  console.log("flagCategory:", flagCatScores);
-  console.log("countryCatScores:", countryCatScores);
 
   return (
     <Container>

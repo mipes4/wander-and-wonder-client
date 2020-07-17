@@ -3,14 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCountriesEurope } from "../../store/countries/actions";
 import { selectCountries } from "../../store/countries/selectors";
 import { dispatchScore } from "../../store/player/actions";
-import { selectPlayer, selectPlayerId } from "../../store/player/selectors";
+import { selectPlayerId } from "../../store/player/selectors";
 import { showMessageWithTimeout } from "../../store/appState/actions";
 import { selectToken } from "../../store/player/selectors";
 import { useHistory } from "react-router-dom";
-
-import { Image } from "react-bootstrap";
-
-import { findByLabelText } from "@testing-library/react";
 
 export default function Europe(props) {
   const dispatch = useDispatch();
@@ -18,21 +14,15 @@ export default function Europe(props) {
   const [country, setCountry] = useState({});
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-
   const id = useSelector(selectPlayerId);
-
   const token = useSelector(selectToken);
   const history = useHistory();
-
-  const alphaCodes = europe.map((c) => c.alpha2Code.toLowerCase());
 
   useEffect(() => {
     if (token === null) history.push("/login");
   }, [token, history]);
 
   useEffect(() => {
-    console.log("props changes:", props.clickedCountry);
-
     if (country && props.clickedCountry === country.alpha2Code) {
       setScore(score + 1);
       const randomNumber = Math.floor(Math.random() * europe.length);
@@ -66,7 +56,6 @@ export default function Europe(props) {
     if (europe) {
       const randomNumber = Math.floor(Math.random() * europe.length);
       setCountry(europe[randomNumber]);
-      // console.log(randomNumber, countries[randomNumber]);
     }
   }, [europe]);
 

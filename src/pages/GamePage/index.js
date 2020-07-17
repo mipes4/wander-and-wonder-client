@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectPlayer } from "../../store/player/selectors";
 import { handleGameOver } from "../../store/player/actions";
 import Anime from "react-anime";
-import questionMark from "../../images/questionMark.png";
 import cross from "../../images/cross.png";
 import { Button, Image } from "react-bootstrap";
 import "./index.css";
@@ -16,14 +15,12 @@ export default function Game() {
   const handle = () => {
     dispatch(handleGameOver(false));
   };
-  console.log("category?", category);
 
   return (
     <div>
       {!gameOver ? (
         category === "europe" ? (
           <div>
-            {console.log("inside EuropeMap", category)}
             <EuropeMap />
           </div>
         ) : (

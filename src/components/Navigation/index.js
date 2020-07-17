@@ -11,7 +11,6 @@ import "./index.css";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
-
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (

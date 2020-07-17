@@ -8,7 +8,6 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Game from "./pages/GamePage";
 import Welcome from "./pages/Welcome";
-
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getPlayerWithStoredToken } from "./store/player/actions";
