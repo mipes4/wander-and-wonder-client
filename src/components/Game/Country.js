@@ -5,7 +5,7 @@ import { selectCountries } from "../../store/countries/selectors";
 
 import { dispatchScore } from "../../store/player/actions";
 import { selectPlayer, selectPlayerId } from "../../store/player/selectors";
-
+import { showMessageWithTimeout } from "../../store/appState/actions";
 import { selectToken } from "../../store/player/selectors";
 import { useHistory } from "react-router-dom";
 
@@ -37,6 +37,9 @@ export default function Country(props) {
       setScore(score + 1);
       const randomNumber = Math.floor(Math.random() * countries.length);
       setCountry(countries[randomNumber]);
+      dispatch(
+        showMessageWithTimeout("success", true, "Nice! That's correct!")
+      );
       console.log("What is randomNumber?", randomNumber);
     }
     if (
@@ -48,6 +51,7 @@ export default function Country(props) {
       console.log("COUNTRY.alpha2Code", country.alpha2Code);
       setGameOver(true);
       dispatch(dispatchScore(id, 2, score));
+      dispatch(showMessageWithTimeout("danger", true, "Too bad, wrong guess."));
     }
   }, [props]);
 
@@ -68,7 +72,7 @@ export default function Country(props) {
 
   return (
     <div>
-      <h1>Game</h1>
+      <h1 class="display-2">Click on the correct country</h1>
       {countries && country ? country.name : null}
     </div>
   );

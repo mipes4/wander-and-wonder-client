@@ -100,6 +100,59 @@
     U+FEFF, U+FFFD;
 }
 
+/* latin */
+@font-face {
+  font-family: "Josefin Slab";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Josefin Slab Italic"), local("JosefinSlab-Italic"),
+    url(https://fonts.gstatic.com/s/josefinslab/v10/lW-nwjwOK3Ps5GSJlNNkMalnrz6tDs8.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Josefin Slab";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Josefin Slab Bold Italic"), local("JosefinSlab-BoldItalic"),
+    url(https://fonts.gstatic.com/s/josefinslab/v10/lW-kwjwOK3Ps5GSJlNNkMalnrzYWK9rnHg4.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Josefin Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Josefin Slab Regular"), local("JosefinSlab-Regular"),
+    url(https://fonts.gstatic.com/s/josefinslab/v10/lW-5wjwOK3Ps5GSJlNNkMalnqg6v.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Josefin Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Josefin Slab Bold"), local("JosefinSlab-Bold"),
+    url(https://fonts.gstatic.com/s/josefinslab/v10/lW-mwjwOK3Ps5GSJlNNkMalvESu6Kerl.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
 .App {
   text-align: center;
   margin: 0 auto;
@@ -113,6 +166,11 @@ h1 {
   font-weight: 700;
   color: white;
 }
+
+h2 {
+  font-family: "Josefin Slab";
+}
+
 p {
   font-family: "Roboto";
   color: white;

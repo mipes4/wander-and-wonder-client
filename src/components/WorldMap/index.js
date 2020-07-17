@@ -238,16 +238,25 @@ const plotOptions = {
 const chart = {
   chart: {
     map: "world",
+    backgroundColor: "#2d2d2d",
+    plotBackgroundColor: "#2d2d2d",
+    height: 700,
+    width: 800,
   },
   title: {
-    text: "Click on a country",
+    text: null,
   },
   credits: {
     enabled: false,
   },
-  // tooltip: { enabled: false }, //Pop-up on hover. Disable for the game.
+  tooltip: { enabled: false }, //Pop-up on hover. Disable for the game.
   mapNavigation: {
     enabled: true, //ability to zoom
+  },
+  colorAxis: {
+    min: 999,
+    max: 1000,
+    visible: false,
   },
 
   plotOptions,
@@ -258,12 +267,15 @@ const chart = {
       data: data,
       name: "Basemap",
       mapData: mapData,
-      borderColor: "#A0A0A0",
+
+
+      borderColor: "grey",
       nullColor: "white",
       showInLegend: false,
       states: {
+        backgroundColor: "transparent",
         hover: {
-          color: "pink",
+          color: "red",
         },
       },
     },
