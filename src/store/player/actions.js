@@ -96,29 +96,19 @@ export const login = (email, password) => {
 
 export const getPlayerWithStoredToken = () => {
   return async (dispatch, getState) => {
-    // get token from the state
     const token = selectToken(getState());
-
-    // if we have no token, stop
     if (token === null) return;
-
     dispatch(appLoading());
     try {
-      // if we do have a token,
-      // check wether it is still valid or if it is expired
       const response = await axios.get(`${apiUrl}/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      // token is still valid
       dispatch(tokenStillValid(response.data));
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
       } else {
       }
-      // if we get a 4xx or 5xx response,
-      // get rid of the token by logging out
       dispatch(logOut());
       dispatch(appDoneLoading());
     }
@@ -129,11 +119,12 @@ export const dispatchScore = (id, categoryId, score) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.post(
-        `${apiUrl}/scores/player/${id}/${categoryId}`, // NEEDS UPDATE WITH CORRECT ENDPOINT
+        `${apiUrl}/scores/player/${id}/${categoryId}`,
         {
           score,
         }
       );
+
       dispatch(saveScore(score));
       dispatch(handleGameOver(true));
     } catch (error) {
