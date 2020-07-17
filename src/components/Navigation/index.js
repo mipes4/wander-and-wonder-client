@@ -16,7 +16,7 @@ export default function Navigation() {
 
   return (
     <Navbar className="navbar" expand="sm">
-      <Nav style={{ width: "100%" }} fill>
+      <Nav style={{ width: "100%", textAlign: "center" }}>
         <NavbarItem path="/" linkText="Wander" />
         <NavbarItem path="/scoreboard" linkText="Scoreboard" />
         {loginLogoutControls}

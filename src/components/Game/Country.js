@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCountries } from "../../store/countries/actions";
 import { selectCountries } from "../../store/countries/selectors";
-
 import { dispatchScore } from "../../store/player/actions";
 import { selectPlayer, selectPlayerId } from "../../store/player/selectors";
 import { showMessageWithTimeout } from "../../store/appState/actions";
@@ -23,7 +22,7 @@ export default function Country(props) {
   const token = useSelector(selectToken);
   const history = useHistory();
 
-  const alphaCodes = countries.map((c) => c.alpha2Code);
+  const alphaCodes = countries.map((c) => c.alpha2Code.toLowerCase());
   console.log("alphacodes:", alphaCodes);
   console.log("clickedCountry in Game?", props.clickedCountry);
 
@@ -72,6 +71,7 @@ export default function Country(props) {
   console.log(country, props.clickedCountry);
 
   return (
+
     <div
       style={{
         display: "flex",
@@ -103,6 +103,9 @@ export default function Country(props) {
           <div style={{ width: 300 }}>
             {" "}
             {countries && country ? <h2>{country.name}</h2> : null}
+          {/* {alphaCodes.map((code, i) => {
+        return <p>{`["${code}", ${i}],`}</p>;
+      })} */}
           </div>
           <div
             style={{

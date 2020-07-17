@@ -169,6 +169,10 @@ h1 {
 
 h2 {
   font-family: "Josefin Slab";
+  text-align: center;
+}
+h3 {
+  font-family: "Amatic SC";
 }
 
 p {
