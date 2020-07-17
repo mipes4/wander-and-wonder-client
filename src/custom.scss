@@ -33,15 +33,18 @@ button.btn.btn-primary:focus {
   box-shadow: none !important;
 }
 
-nav.navbar.navbar.navbar-expand-sm.navbar-light {
+nav.navbar.navbar {
   background-color: #2d2d2d;
   font-family: "Amatic SC";
   font-size: 30px;
+  color: white !important;
   // display: "flex" !important;
   // justify-content: "center" !important;
 }
 
-.navbar {
+.navbar-brand {
+  font-family: "Amatic SC";
+  font-size: 50px;
   color: white !important;
 }
 
@@ -51,6 +54,13 @@ nav.navbar.navbar.navbar-expand-sm.navbar-light {
   align-items: flex-end;
 }
 
-.nav {
-  color: #ffffff;
+.nav-link {
+  color: white !important;
+}
+
+button#dropdown-basic.dropdown-toggle.btn.btn-success {
+  background-color: white;
+  color: black;
+  border: white;
+  box-shadow: none;
 }

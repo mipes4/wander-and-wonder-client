@@ -1,20 +1,11 @@
 import React from "react";
 import NavbarItem from "./NavbarItem";
+import { Nav } from "react-bootstrap";
 
 export default function LoggedOut() {
   return (
-    <div
-      style={{
-        dislay: "flex !important",
-        justifyContent: "flex-end !important",
-        alignItems: "flex-end !important",
-      }}
-    >
-      <NavbarItem
-        path="/login"
-        linkText="Login"
-        style={{ justifyContent: "flex-end," }}
-      />
-    </div>
+    <Nav style={{ paddingRight: "50px" }}>
+      <NavbarItem path="/login" linkText="Login" />
+    </Nav>
   );
 }

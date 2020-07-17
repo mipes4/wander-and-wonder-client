@@ -15,33 +15,15 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <div
-      style={{
-        flex: "1 1 0",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Navbar
-        style={{
-          justifyContent: "center",
-        }}
-        className="navbar"
-        expand="sm"
-      >
-        <Nav
-          style={{
-            width: "100%",
-            textAlign: "center",
-            justifyContent: "center",
-          }}
-        >
-          <NavbarItem path="/" linkText="Wander" />
-          <NavbarItem path="/scoreboard" linkText="Scoreboard" />
-          {loginLogoutControls}
-        </Nav>
-      </Navbar>
-    </div>
+    <Navbar collapseOnSelect expand="lg">
+      <Nav style={{ width: "100%", paddingLeft: "50px" }}>
+        <Navbar.Brand as={NavLink} to="/">
+          Wander
+        </Navbar.Brand>
+
+        <NavbarItem path="/scoreboard" linkText="Scoreboard" />
+      </Nav>
+      {loginLogoutControls}
+    </Navbar>
   );
 }
