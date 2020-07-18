@@ -1,0 +1,11 @@
+th {
+  /* color: red; */
+  font-size: 1.2em;
+  letter-spacing: 0.2em;
+  background-color: red;
+}
+
+Col {
+  margin-right: 30px;
+  margin-left: 30px;
+}

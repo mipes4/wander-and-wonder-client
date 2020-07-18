@@ -22,7 +22,6 @@ export default function SignUp() {
   }, [token, history]);
 
   function submitForm(event) {
-    console.log("hi");
     event.preventDefault();
 
     dispatch(login(email, password));
@@ -32,11 +31,10 @@ export default function SignUp() {
   }
 
   return (
-    <Container>
+    <Container style={{ marginTop: 200 }}>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h1 className="mt-5 mb-5">Login</h1>
+        <h1 class="display-3"></h1>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -47,7 +45,6 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -61,7 +58,7 @@ export default function SignUp() {
             Log in
           </Button>
         </Form.Group>
-        <Link to="/signup" style={{ textAlign: "center" }}>
+        <Link to="/signup" style={{ color: "white", textAlign: "center" }}>
           Click here to sign up
         </Link>
       </Form>
