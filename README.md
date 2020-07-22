@@ -10,7 +10,7 @@
 - [USER STORIES](#user-stories)
 - [TECHNOLOGIES](#technologies)
 - [DEMO](#demo)
-- [SETUP](#setup)]
+- [SETUP](#setup)
 
 ## ABOUT THE APP :world_map:
 
